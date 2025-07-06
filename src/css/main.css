@@ -1,10 +1,42 @@
-.container {
-  background-color: rgb(79, 128, 184);
+body {
+  background-image: url(../../public/images/jungle.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-body {
-  background-image: url(../../images/jungle.png);
-  background-size: cover;
+.container {
+  background-color: rgb(255, 255, 255);
+  margin-top: 5%;
+  width: 100vh;
+  height: 500px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+}
+
+#namePokemon {
+  font-size: 18px;
+  padding: 5px 10px;
+  width: 100%;
+  outline: none;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #c4d1eb;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+#namePokemon:focus {
+  background: #f2f2f2;
+  border: 1px solid #5a7ec7;
+  border-radius: 10px;
+}
+#namePokemon ::placeholder {
+  color: #dddddd;
 }
 
 /*# sourceMappingURL=main.css.map */

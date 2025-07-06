@@ -1,3 +1,10 @@
+.container {
+  background-color: rgb(79, 128, 184);
+}
 
+body {
+  background-image: url(../../images/jungle.png);
+  background-size: cover;
+}
 
 /*# sourceMappingURL=main.css.map */

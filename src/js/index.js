@@ -1,14 +1,20 @@
-const url = "https://pokeapi.co/api/v2/pokemon/pikachu";
+const showName = document.querySelector('.showName');
+const namePokemon = document.getElementById('namePokemon').value.toString();
 
-async function getPoke() {
-  const response = await fetch(url);
+const getPoke = async (pokemon) =>{
 
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
   const data = await response.json();
+  console.log(data)
 
-  console.log(data);
-
-  console.log(response);
-  
+  return data;
 }
 
-getPoke();
+const showPokemon = async (pokemon) =>{
+  const data = await getPoke(pokemon);
+
+  showName.innerHTML = data.name;
+}
+
+showPokemon(namePokemon);
+

@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/css/reset.css">
-    <link rel="stylesheet" href="src/css/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/css/reset.css" />
+    <link rel="stylesheet" href="src/css/main.css" />
     <title>Pokedéx</title>
-</head>
-<body>
-    
-<div class="container">
+  </head>
+  <body>
     <form class="inputForm">
-        <label name="pokemonName"><input type="text" id="namePokemon" placeholder="Pokemon name"></label>
-        <!-- <button id="prevBtn">previous</button>
-        <button id="nextBtn">next</button> -->
-        <span class="showName"></span>
+      <label name="pokemonName"
+        ><input type="text" id="namePokemon" placeholder="Pokemon name"
+      /></label>
     </form>
-
-</div>
+    <div class="container">
+      <div class="teste">
+        <button id="prevBtn">previous</button>
+        <div class="boxImage">
+          <img src="../../public/images/charmander.png" alt="imagem pokemon" />
+        </div>
+        <button id="nextBtn">next</button>
+      </div>
+      <div>
+        <span class="showId">40 - </span>
+        <span class="showName"></span>
+      </div>
+    </div>
     <script src="src/js/index.js"></script>
-</body>
+  </body>
 </html>

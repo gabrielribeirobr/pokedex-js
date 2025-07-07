@@ -2,40 +2,99 @@ body {
   background-image: url(../../public/images/jungle.png);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
+  padding-top: 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+.inputForm {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
 }
 
 .container {
   background-color: rgb(255, 255, 255);
-  margin-top: 5%;
-  width: 100vh;
-  height: 500px;
-  border-radius: 10px;
+  width: 70%;
+  height: 400px;
+  border-radius: 10px; 
+  margin-top: 50px;
+  text-align: center;
+  
+}
+.teste{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 25px;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: -100px;
+}
+.boxImage {
+  top: -80px; 
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+  z-index: 1;
+  
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .showName {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+  }
 }
 
 #namePokemon {
   font-size: 18px;
   padding: 5px 10px;
-  width: 100%;
+  width: 200px;
   outline: none;
-  background: #ffffff;
-  color: #000000;
+  background: transparent;
+  color: white;
   border: 1px solid #c4d1eb;
   border-radius: 5px;
   transition: 0.3s ease;
+  
 
   &:focus {
-    background: #f2f2f2;
+    background: #a8a8a8;
     border: 1px solid #5a7ec7;
     border-radius: 10px;
   }
+
   ::placeholder {
     color: #dddddd;
+  }
+}
+
+@media (max-width: 425px) {
+  .boxImage {
+    width: 150px;
+    height: 150px;
+    top: -60px;
+  }
+
+  .container {
+    width: 100%;
+    padding-top: 80px;
+  }
+
+  .inputForm {
+    flex-direction: column;
+    align-items: center;
   }
 }

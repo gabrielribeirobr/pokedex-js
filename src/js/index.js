@@ -16,5 +16,5 @@ const showPokemon = async (pokemon) =>{
   showName.innerHTML = data.name;
 }
 
-showPokemon(namePokemon);
+showPokemon('4');
 

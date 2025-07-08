@@ -1,20 +1,30 @@
-const showName = document.querySelector('.showName');
-const namePokemon = document.getElementById('namePokemon').value.toString();
+const showName = document.querySelector(".showName");
+const namePokemon = document.getElementById("namePokemon").value.toString();
+const boxImage = document.querySelector('.boxImage');
 
-const getPoke = async (pokemon) =>{
-
+const getPokeApi = async (pokemon) => {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
   const data = await response.json();
-  console.log(data)
+  console.log(data);
 
   return data;
-}
+};
 
-const showPokemon = async (pokemon) =>{
-  const data = await getPoke(pokemon);
-
+const showPokemon = async (pokemon) => {
+  const data = await getPokeApi(pokemon);
   showName.innerHTML = data.name;
-}
 
-showPokemon('4');
+  const imagePokemon = document.createElement("img");
+  const {
+    other: {
+    home: { front_default },
+    },
+  } = await data.sprites;
+  imagePokemon.src = front_default;
+  boxImage.appendChild(imagePokemon);
 
+  const showId = document.querySelector('.showId');
+  showId.innerHTML = `${data.id} - `;
+};
+
+showPokemon("97");

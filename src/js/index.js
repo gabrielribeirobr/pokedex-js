@@ -1,9 +1,9 @@
 const showName = document.querySelector(".showName");
 const namePokemon = document.getElementById("namePokemon").value.toString();
 const boxImage = document.querySelector('.boxImage');
-
+const BASE_URL = 'https://pokeapi.co/api/v2';
 const getPokeApi = async (pokemon) => {
-  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+  const response = await fetch(`${BASE_URL}/pokemon/${pokemon}`);
   const data = await response.json();
   console.log(data);
 
@@ -27,4 +27,6 @@ const showPokemon = async (pokemon) => {
   showId.innerHTML = `${data.id} - `;
 };
 
-showPokemon("97");
+
+
+showPokemon("453");

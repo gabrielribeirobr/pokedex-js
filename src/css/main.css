@@ -30,6 +30,30 @@ body {
   text-align: center;
 }
 
+.btn {
+  background: transparent;
+  font-size: 30px;
+  border: none;
+  transition: 0.3s ease;
+  color: #a8a8a8;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: translateX(5px);
+}
+
+.prevBtn:hover {
+  transform: translateX(-5px);
+}
+
+.showId {
+  color: #a8a8a8;
+}
+
+span {
+  font-size: 18px;
+}
+
 .teste {
   display: flex;
   justify-content: center;
@@ -63,8 +87,8 @@ body {
   outline: none;
   background: transparent;
   color: white;
-  border: 1px solid #c4d1eb;
-  border-radius: 5px;
+  border: none;
+  border-bottom: 2px solid #c4d1eb;
   transition: 0.3s ease;
 }
 #namePokemon:focus {

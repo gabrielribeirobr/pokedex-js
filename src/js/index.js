@@ -15,7 +15,6 @@ const getPokeApi = async (pokemon) => {
     return null;
   } else {
     const data = await response.json();
-    console.log(data);
     return data;
   }
 };
@@ -41,12 +40,13 @@ const showPokemon = async (pokemon) => {
   imagePokemon.src = front_default;
 };
 showPokemon("1");
-
+statsPokemon("1");
 const nextPokemon = () => {
   const nextId = currentId + 1;
 
   if (nextId <= 1025) {
     showPokemon(nextId);
+    statsPokemon(nextId);
   } else {
     alert("Esse é o último Pokémon disponível.");
   }
@@ -57,6 +57,7 @@ const prevPokemon = () => {
 
   if (prevId > 0) {
     showPokemon(prevId);
+    statsPokemon(prevId);
   } else {
     alert("Esse é o último Pokémon disponível.");
   }
@@ -78,8 +79,34 @@ btnSearch.addEventListener("click", async (e) => {
     return;
   }
   try {
-    await showPokemon(pokemon);
+    await showPokemon(pokemon)
+    statsPokemon(pokemon);
   } catch (error) {
     alert("Pokémon não encontrado.");
   }
 });
+
+async function statsPokemon(pokemon) {
+  const data = await getPokeApi(pokemon);
+  const baseStats = data.stats.map(({ base_stat }) => base_stat);
+  const [hp, attack, defense, special_attack, special_defense, speed] =
+    baseStats;
+
+  const baseHp = document.querySelector(".hp");
+  baseHp.innerHTML = hp;
+
+  const baseAttack = document.querySelector(".attack");
+  baseAttack.innerHTML = attack;
+
+  const baseDefense = document.querySelector(".defense");
+  baseDefense.innerHTML = defense;
+
+  const baseSpecialAttack = document.querySelector(".specialattack");
+  baseSpecialAttack.innerHTML = special_attack;
+
+  const baseSpecialDefense = document.querySelector(".specialdefense");
+  baseSpecialDefense.innerHTML = special_defense;
+
+  const baseSpeed = document.querySelector(".speed");
+  baseSpeed.innerHTML = speed;
+}

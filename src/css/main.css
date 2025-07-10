@@ -29,10 +29,11 @@ body {
 .container {
   background-color: white;
   width: 45%;
-  height: 400px;
+  height: auto;
   border-radius: 10px;
   margin-top: 50px;
   text-align: center;
+  padding: 10px;
 }
 
 .btn {
@@ -107,20 +108,46 @@ span {
   color: #ffffff;
 }
 
-@media (max-width: 425px) {
-  .boxImage {
-    width: 150px;
-    height: 150px;
-    top: -60px;
-  }
-  .container {
-    width: 100%;
-    padding-top: 80px;
-  }
-  .inputForm {
-    flex-direction: column;
-    align-items: center;
-  }
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.titleStats {
+  font-size: 36px;
+}
+
+.graphics {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 5px;
+}
+
+.name {
+  width: 200px;
+  display: flex;
+  align-items: flex-start;
+  font-size: 18px;
+}
+
+.bar {
+  width: 100%;
+}
+
+.base {
+  width: auto;
+  font-size: 18px;
 }
 
 /*# sourceMappingURL=main.css.map */

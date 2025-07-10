@@ -2,33 +2,28 @@ const showName = document.querySelector(".showName");
 const namePokemon = document.getElementById("namePokemon");
 const boxImage = document.querySelector(".boxImage");
 const BASE_URL = "https://pokeapi.co/api/v2";
-const btnNext = document.querySelector('.nextBtn');
-const btnPrev = document.querySelector('.prevBtn');
+const btnNext = document.querySelector(".nextBtn");
+const btnPrev = document.querySelector(".prevBtn");
 
 let currentId = 1;
 
 const getPokeApi = async (pokemon) => {
-
   const response = await fetch(`${BASE_URL}/pokemon/${pokemon}`);
-  
-  
-  if(!response.ok){
-    alert('Pokémon inválido');
+
+  if (!response.ok) {
+    alert("Pokémon inválido");
     return null;
-  }  else {
+  } else {
     const data = await response.json();
     console.log(data);
     return data;
   }
-  
-
-  
 };
 
 const showPokemon = async (pokemon) => {
   const data = await getPokeApi(pokemon);
 
-  if(!data) return;
+  if (!data) return;
 
   currentId = data.id;
 
@@ -44,7 +39,6 @@ const showPokemon = async (pokemon) => {
     },
   } = await data.sprites;
   imagePokemon.src = front_default;
-
 };
 showPokemon("1");
 
@@ -61,7 +55,7 @@ const nextPokemon = () => {
 const prevPokemon = () => {
   const prevId = currentId - 1;
 
-  if (prevId > 0 ) {
+  if (prevId > 0) {
     showPokemon(prevId);
   } else {
     alert("Esse é o último Pokémon disponível.");
@@ -83,15 +77,9 @@ btnSearch.addEventListener("click", async (e) => {
     alert("Insira um nome ou número válido de Pokémon.");
     return;
   }
-  try{
-   await showPokemon(pokemon);
-  }
-
-  catch (error){
+  try {
+    await showPokemon(pokemon);
+  } catch (error) {
     alert("Pokémon não encontrado.");
   }
 });
-
-isNaN()
-
-

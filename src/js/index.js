@@ -41,12 +41,14 @@ const showPokemon = async (pokemon) => {
 };
 showPokemon("1");
 statsPokemon("1");
+bgColor("1")
 const nextPokemon = () => {
   const nextId = currentId + 1;
 
   if (nextId <= 1025) {
     showPokemon(nextId);
     statsPokemon(nextId);
+    bgColor(nextId);
   } else {
     alert("Esse é o último Pokémon disponível.");
   }
@@ -58,6 +60,7 @@ const prevPokemon = () => {
   if (prevId > 0) {
     showPokemon(prevId);
     statsPokemon(prevId);
+    bgColor(prevId)
   } else {
     alert("Esse é o último Pokémon disponível.");
   }
@@ -81,6 +84,7 @@ btnSearch.addEventListener("click", async (e) => {
   try {
     await showPokemon(pokemon)
     statsPokemon(pokemon);
+    bgColor(pokemon);
   } catch (error) {
     alert("Pokémon não encontrado.");
   }
@@ -109,4 +113,34 @@ async function statsPokemon(pokemon) {
 
   const baseSpeed = document.querySelector(".speed");
   baseSpeed.innerHTML = speed;
+}
+
+async function bgColor(pokemon){
+  const data = await getPokeApi(pokemon);
+  const [{type: {name: nameColor}}] = data.types;
+  
+  const colors = {
+    fire: '#ff7402',
+    grass: '#33a165',
+    steel: '#00858a',
+    water: '#0050ac',
+    psychic: '#c90086',
+    ground: '#c90086',
+    ice: '#70deff',
+    flying: '#5d4e75',
+    ghost: '#4d5b64',
+    normal: '#753845',
+    poison: '#7e0058',
+    rock: '#6e1a00',
+    fighting: '#634136',
+    dark: '#272625',
+    bug: '#6e1a00',
+    dragon: '#00c431',
+    electric: '#bba909',
+    fairy: '#d31c81',
+    unknow: '#757575',
+    shadow: '#29292c'
+}
+
+document.querySelector(".container").style.backgroundColor = colors[nameColor];
 }

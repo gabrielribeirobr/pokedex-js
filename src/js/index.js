@@ -26,7 +26,7 @@ const showPokemon = async (pokemon) => {
 
   currentId = data.id;
 
-  showName.innerHTML = data.name;
+  showName.innerHTML = data.name.toUpperCase();
 
   const showId = document.querySelector(".showId");
   showId.innerHTML = `${currentId} - `;
@@ -142,5 +142,5 @@ async function bgColor(pokemon){
     shadow: '#29292c'
 }
 
-document.querySelector(".container").style.backgroundColor = colors[nameColor];
+document.querySelector("body").style.backgroundColor = colors[nameColor];
 }

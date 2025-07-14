@@ -4,7 +4,8 @@ A responsive Pokédex built with **HTML**, **SCSS**, and **JavaScript**, powered
 Easily search for any Pokémon by name or ID, browse through them using navigation buttons, and view their base stats with animated bars.
 # Pokédex Web App
 
-🎮 **Live Demo**: [Click here to open the Pokédex](https://gabrielribeirobr.github.io/pokedex-js/)  
+🎮 **Live Demo**: [Click here to open the Pokédex](https://gabrielribeirobr.github.io/pokedex-js/) 
+![Pokedex Demo](./pokedex.gif)
 
 ---
 

@@ -154,6 +154,19 @@ span {
   font-size: 18px;
 }
 
+.bar {
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.bar .inside {
+  height: 100%;
+  background-color: #fff;
+  width: 0%;
+  transition: width 0.5s ease-in-out;
+  border-radius: 5px;
+}
+
 @media screen and (min-width: 768px) {
   .container {
     width: 60%;

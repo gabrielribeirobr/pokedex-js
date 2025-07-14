@@ -38,6 +38,7 @@ const showPokemon = async (pokemon) => {
     },
   } = await data.sprites;
   imagePokemon.src = front_default;
+  
 };
 showPokemon("1");
 statsPokemon("1");
@@ -93,26 +94,25 @@ btnSearch.addEventListener("click", async (e) => {
 async function statsPokemon(pokemon) {
   const data = await getPokeApi(pokemon);
   const baseStats = data.stats.map(({ base_stat }) => base_stat);
-  const [hp, attack, defense, special_attack, special_defense, speed] =
-    baseStats;
+  const [hp, attack, defense, special_attack, special_defense, speed] = baseStats;
 
-  const baseHp = document.querySelector(".hp");
-  baseHp.innerHTML = hp;
+  const stats = [
+    { className: "hp", value: hp },
+    { className: "attack", value: attack },
+    { className: "defense", value: defense },
+    { className: "specialattack", value: special_attack },
+    { className: "specialdefense", value: special_defense },
+    { className: "speed", value: speed },
+  ];
 
-  const baseAttack = document.querySelector(".attack");
-  baseAttack.innerHTML = attack;
+  stats.forEach(({ className, value }, index) => {
+    const baseEl = document.querySelector(`.${className}`);
+    baseEl.textContent = value;
 
-  const baseDefense = document.querySelector(".defense");
-  baseDefense.innerHTML = defense;
-
-  const baseSpecialAttack = document.querySelector(".specialattack");
-  baseSpecialAttack.innerHTML = special_attack;
-
-  const baseSpecialDefense = document.querySelector(".specialdefense");
-  baseSpecialDefense.innerHTML = special_defense;
-
-  const baseSpeed = document.querySelector(".speed");
-  baseSpeed.innerHTML = speed;
+    const insideBar = document.querySelectorAll(".inside")[index];
+    const percentage = Math.min(value, 150) / 150 * 100; 
+    insideBar.style.width = `${percentage}%`;
+  });
 }
 
 async function bgColor(pokemon){
